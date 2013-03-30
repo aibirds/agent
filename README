@@ -1,0 +1,62 @@
+ANGRYBIRDS AI AGENT FRAMEWORK
+Copyright © 2013, XiaoYu (Gary) Ge, Stephen Gould, Jochen Renz, Sahan Abeyasinghe, Jim Keys, Kar-Wai Lim, Zain Mubashir, Andrew Wang, Peng Zhang. All rights reserved.
+This software contains a framework for developing AI agents capable of
+playing Angry Birds. The framework is composed of a javascript plugin
+for the Chrome web browser and Java client/server code for interfacing
+to the game and implementing the AI stategy. A sample agent is provided.
+
+* A detailed documentation can be found under the doc folder
+
+
+* Installation Instructions for Chrome Extension ----------------------
+
+  1. Open Chrome
+  2. Go to: chrome://chrome/extensions/
+  3. Click the 'Developer mode' check box
+  4. Click the 'Load unpacked extension...' button
+  5. Browse for the 'plugin' folder (contains the 'manifest.json' file)
+
+  NOTE: if the screenshots are coming out as transparent PNG files do the following:
+    1. Open Chrome
+    2. Go to: chrome://flags/
+    3. Find the option 'Disable WebGL' and enable it (i.e., enable the disabling of WebGL)
+
+
+* Setting the CLASSPATH -----------------------------------------------
+
+  Java uses the CLASSPATH variable to determine where to find
+  additional software packages. The exact mechanism for setting the
+  CLASSPATH depends on the operating system (Windows, Linux or Mac),
+  e.g., use "export CLASSPATH=..." under the bash shell in Linux. The
+  CLASSPATH can also be set on the command line using the -cp flag.
+  For the AngryBirds AI Framework you will need to include the
+  following in the CLASSPATH:
+
+    external/WebSocket.jar:external/json-simple-1.1.1.jar:external/commons-codec-1.7.jar:external/Jama-1.0.2.jar:src:.
+
+  where the directories are relative to the location where you have
+  installed the code.
+ 
+* Compile using ANT (1.7 or above) ------------------------------------------------
+  You can use ANT to compile the source codes via command line. Ant is a Java library and command-line tool whose mission is to drive processes described in build files as targets and extension points dependent upon each other. For more information, please refer to  http://ant.apache.org/
+
+  You can download ANT from http://ant.apache.org/manualdownload.cgi  and please note ANT 1.7 or above required
+
+  To compile the source codes, go to the software directory, and use command:  ant compile
+ 
+  To generate an executable file:  ant jar
+  
+
+* Running the Sample Agent --------------------------------------------
+
+  java -jar ab1.0.jar -na                // run the agent from level 1
+   
+  java -jar ab1.0.jar -na [0-21]       // run the agent from the specified level.
+
+  java -jar ab1.0.jar -na [0-21] -showSeg     // run the agent with the real-time vision output
+
+  java -jar ab1.0.jar -showSeg        // show the real-time image segementation
+
+  java -jar ab1.0.jar -showTraj        // show the real-time trajectory prediction
+
+  java -jar ab1.0.jar -recordImg [directory] // save the current game image to the specified directory
